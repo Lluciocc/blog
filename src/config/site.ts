@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Lluciocc",
-  url: import.meta.env.VITE_SITE_URL || "https://lluciocc.fr",
-  title: "Lluciocc — Personal journal",
+  url: import.meta.env.VITE_SITE_URL || "https://blog.lluciocc.fr",
+  title: "Lluciocc - Blog",
   description: "Notes, ideas, and experiments by Lluciocc.",
   author: "Lluciocc",
   locale: "en-US",
@@ -9,6 +9,6 @@ export const siteConfig = {
     github: "https://github.com/lluciocc",
     x: "https://x.com/lluciocc",
     linkedin: "https://www.linkedin.com/in/lluciocc",
-    email: "mailto:bonjour@lluciocc.fr",
+    email: "mailto:lucas.cialdella57@gmail.com",
   },
 } as const;
