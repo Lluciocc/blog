@@ -17,20 +17,25 @@ function YoutubeEmbed({ url }: { url: string }) {
 }
 
 function Authors({ post }: { post: BlogPost }) {
+  const authors = post.authors.length
+    ? post.authors.filter((author, index, list) => list.findIndex(item => item.name === author.name) === index)
+    : [{ name: siteConfig.author, logo: "/profile.png" }];
+
   return (
-    <h6 className="flex items-center justify-center w-full py-3 border-y blog__meta border-accent-800/50">
+    <div className="flex items-center justify-center w-full py-3 border-y blog__meta border-accent-800/50">
       <div className="flex mr-4 -space-x-2 shrink-0">
-        <Image src="/profile.png" width={32} height={32} alt={siteConfig.name} className="w-8 h-8 border rounded-full border-accent-600" />
-        {post.authors.map(author => <Image key={author.name} src={author.logo} width={32} height={32} alt={author.name} className="w-8 h-8 border rounded-full border-accent-600" />)}
+        {authors.map(author => <Image key={author.name} src={author.logo} width={32} height={32} alt={author.name} className="w-8 h-8 border rounded-full border-accent-600" />)}
       </div>
       <div className="text-accent-300">
-        <span className="mr-1">Published by <span className="text-accent-50">{siteConfig.author}</span>
-          {post.authors.map((author, index) => <span key={author.name}> {index === post.authors.length - 1 ? "& " : ", "}<span className="text-accent-50">{author.name}</span></span>)}
+        <span className="mr-1">Published by {authors.map((author, index) => <span key={author.name}>
+          {index > 0 && (index === authors.length - 1 ? " & " : ", ")}
+          <span className="text-accent-50">{author.name}</span>
+        </span>)}
         </span>
         <span className="mx-1"><span className="whitespace-pre opacity-50"> • </span>{post.readingTime}</span>
         <span className="ml-1"><span className="whitespace-pre opacity-50"> • </span>{post.date}</span>
       </div>
-    </h6>
+    </div>
   );
 }
 

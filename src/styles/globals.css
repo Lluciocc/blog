@@ -244,11 +244,11 @@ circle[id^="react-sketch-canvas__"]{
 }
 
 .article-content .contains-task-list {
-  @apply list-none pl-0;
+  @apply pl-7;
 }
 
 .article-content .task-list-item {
-  @apply list-none;
+  @apply -ml-7 list-none;
 }
 
 .article-content .task-list-item input[type="checkbox"] {
@@ -320,7 +320,7 @@ circle[id^="react-sketch-canvas__"]{
 }
 
 .blog__meta {
-  @apply !text-accent-50/50 !font-normal mt-4 mb-8;
+  @apply mb-8 mt-4 text-base !font-normal !text-accent-50/50;
 }
 
 .article-content pre.shiki {
@@ -410,11 +410,19 @@ circle[id^="react-sketch-canvas__"]{
 }
 
 .article-content .mermaid-diagram {
-  @apply my-8 min-h-32 overflow-x-auto rounded-md border border-accent-700 bg-accent-850/60 p-4 text-center text-base;
+  min-height: 8rem;
+  @apply my-8 overflow-x-auto rounded-md border border-accent-700 bg-accent-850/60 p-4 text-center text-base;
 }
 
 .article-content .mermaid-diagram svg {
+  min-width: 32rem;
   @apply mx-auto h-auto max-w-full;
+}
+
+@media (min-width: 768px) {
+  .article-content .mermaid-diagram svg {
+    min-width: 0;
+  }
 }
 
 .article-content .mermaid-error {
@@ -509,6 +517,7 @@ circle[id^="react-sketch-canvas__"]{
   --alert-color-stops: var(--alert-default-color-stops);
   @apply my-6 overflow-hidden rounded-lg border border-l-4 border-accent-700 px-4 py-3 text-base;
   background: hsla(var(--alert-color-stops), 50%, 0.12);
+  border-left-color: hsl(var(--alert-color-stops), 50%);
 }
 
 .markdown-alert-note {

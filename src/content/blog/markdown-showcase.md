@@ -5,7 +5,7 @@ date: "2026-08-17"
 description: "A private visual test page covering the complete Markdown rendering pipeline."
 banner: "/profile.png"
 labels: ["Markdown", "Test"]
-authors: ["Lluciocc"]
+authors: ["Lluciocc", "Boro700"]
 draft: true
 ---
 
