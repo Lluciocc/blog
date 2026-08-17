@@ -1,6 +1,6 @@
 # Blog
 
-Personal blog and portfolio of [Lluciocc](https://lluciocc.fr).
+Personal blog and portfolio of [Lluciocc](https://blog.luciocc.fr).
 
 The visual design of this blog was inspired by [boidushya/blog.boidu.dev](https://github.com/boidushya/blog.boidu.dev). The original experience was converted to Vite, React, and TypeScript so the project does not depend on Next.js. The same core features are preserved, with an enhanced Markdown publishing pipeline.
 
