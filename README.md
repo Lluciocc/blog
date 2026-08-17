@@ -84,6 +84,8 @@ Supabase powers likes and signatures. The site remains browsable without Supabas
 
 Run `npm run build` and deploy the generated `dist/` directory to any static hosting provider such as Vercel, Netlify, or Cloudflare Pages. Configure the host to serve `index.html` as the SPA fallback for routes such as `/blog/my-article`.
 
+The repository includes a GitHub Pages workflow at `.github/workflows/deploy.yml`. Set **Settings → Pages → Source** to **GitHub Actions**, then every push to `main` will build and publish the site automatically. Optional Supabase credentials can be added as repository secrets named `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY`.
+
 ## License
 
 This project is distributed under the [GNU General Public License v3.0](LICENSE).

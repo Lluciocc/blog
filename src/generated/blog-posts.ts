@@ -64,10 +64,6 @@ export const blogPosts = [
       {
         "name": "Lluciocc",
         "logo": "/profile.png"
-      },
-      {
-        "name": "test",
-        "logo": ""
       }
     ],
     "draft": false,
