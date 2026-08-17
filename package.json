@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "vite",
+    "dev": "npm run generate:content && vite",
     "build": "npm run generate:content && node ./scripts/generate-seo.mjs && vite build",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",

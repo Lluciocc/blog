@@ -27,6 +27,27 @@ const parseList = value => {
   return value.split(",").map(item => item.trim()).filter(Boolean);
 };
 
+const parseAuthors = value => {
+  const authors = Array.isArray(value) ? value : parseList(value);
+
+  return authors
+    .map(author => {
+      if (author && typeof author === "object") {
+        return {
+          name: String(author.name || "").trim(),
+          logo: String(author.logo || "").trim(),
+        };
+      }
+
+      const name = String(author).trim();
+      return {
+        name,
+        logo: name.toLowerCase() === "lluciocc" ? "/profile.png" : "",
+      };
+    })
+    .filter(author => author.name);
+};
+
 const parseImageCompare = source => {
   const components = [];
   const body = source.replace(/<ImageCompare\s+([\s\S]*?)\s*\/?>/g, (_, attributes) => {
@@ -193,7 +214,7 @@ for (const file of files) {
   const parsed = parseImageCompare(content);
   const processed = await parser.process(parsed.body);
   const html = String(processed);
-  const authors = parseList(data.authors).map(() => ({ name: "Lluciocc", logo: "/profile.png" }));
+  const authors = parseAuthors(data.authors);
 
   posts.push({
     title: String(data.title || slug),
@@ -203,7 +224,7 @@ for (const file of files) {
     slug,
     banner: String(data.banner || "/profile.png"),
     labels: parseList(data.labels),
-    authors,
+    authors: authors.length ? authors : [{ name: "Lluciocc", logo: "/profile.png" }],
     draft: data.draft === true || data.draft === "true",
     readingTime: readingTime(content).text,
     html: html.replace(/<p>(?:<strong>)?_*LLUCIOCC_IMAGE_COMPARE_(\d+)_*(?:<\/strong>)?<\/p>/g, '<div data-image-compare="$1"></div>'),

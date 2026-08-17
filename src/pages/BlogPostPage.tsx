@@ -24,7 +24,11 @@ function Authors({ post }: { post: BlogPost }) {
   return (
     <div className="flex items-center justify-center w-full py-3 border-y blog__meta border-accent-800/50">
       <div className="flex mr-4 -space-x-2 shrink-0">
-        {authors.map(author => <Image key={author.name} src={author.logo} width={32} height={32} alt={author.name} className="w-8 h-8 border rounded-full border-accent-600" />)}
+        {authors.map(author => author.logo
+          ? <Image key={author.name} src={author.logo} width={32} height={32} alt={author.name} className="w-8 h-8 border rounded-full border-accent-600" />
+          : <span key={author.name} role="img" aria-label={author.name} title={author.name} className="grid w-8 h-8 text-xs font-bold uppercase border rounded-full place-items-center bg-accent-800 text-accent-100 border-accent-600">
+            {author.name.slice(0, 2)}
+          </span>)}
       </div>
       <div className="text-accent-300">
         <span className="mr-1">Published by {authors.map((author, index) => <span key={author.name}>

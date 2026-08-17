@@ -15,6 +15,10 @@ export const blogPosts = [
       {
         "name": "Lluciocc",
         "logo": "/profile.png"
+      },
+      {
+        "name": "Boro700",
+        "logo": ""
       }
     ],
     "draft": true,
@@ -60,6 +64,10 @@ export const blogPosts = [
       {
         "name": "Lluciocc",
         "logo": "/profile.png"
+      },
+      {
+        "name": "test",
+        "logo": ""
       }
     ],
     "draft": false,
@@ -84,7 +92,7 @@ export const blogPosts = [
         "logo": "/profile.png"
       }
     ],
-    "draft": false,
+    "draft": true,
     "readingTime": "1 min read",
     "html": "<h2 id=\"nothing-is-arbitrary\"><a class=\"heading-anchor\" aria-label=\"Link to this section\" href=\"#nothing-is-arbitrary\">#</a>Nothing is arbitrary</h2>\n<p>Intentional design means that every decision serves a purpose. Nothing is added simply because it is possible: beauty improves reading, animation creates rhythm, and hierarchy reduces mental effort.</p>\n<div data-image-compare=\"0\"></div>\n<h2 id=\"performance-is-part-of-design\"><a class=\"heading-anchor\" aria-label=\"Link to this section\" href=\"#performance-is-part-of-design\">#</a>Performance is part of design</h2>\n<p>An interface can be elegant and still fail if it slows down the main action. Lazy loading, code splitting, and responsive images are not isolated technical details: they directly shape the feeling of quality.</p>\n<h2 id=\"anticipate-intent\"><a class=\"heading-anchor\" aria-label=\"Link to this section\" href=\"#anticipate-intent\">#</a>Anticipate intent</h2>\n<p>The best components anticipate the next step. A link looks like a link, a button communicates its action, keyboard focus stays visible, and errors explain how to move forward.</p>\n<p>This attention makes a product feel calmer. People do not need to think about the interface; they can focus on what they came to do.</p>\n<h2 id=\"llucioccs-rule\"><a class=\"heading-anchor\" aria-label=\"Link to this section\" href=\"#llucioccs-rule\">#</a>Lluciocc’s rule</h2>\n<p>Before adding an idea, I prefer to ask four questions:</p>\n<ol>\n<li>What problem does it solve?</li>\n<li>Who is it useful for?</li>\n<li>Could it be simpler?</li>\n<li>What happens if it fails?</li>\n</ol>\n<p>The answers often make it possible to remove more than to add. That is how a project stays coherent over time.</p>",
     "components": [

@@ -1,8 +1,20 @@
-# Lluciocc
+# Blog
 
-Lluciocc’s personal site, available at [https://lluciocc.fr](https://lluciocc.fr). The project uses Vite, React, TypeScript, React Router, and Tailwind CSS.
+Personal blog and portfolio of [Lluciocc](https://lluciocc.fr).
 
-## Installation
+The visual design of this blog was inspired by [boidushya/blog.boidu.dev](https://github.com/boidushya/blog.boidu.dev). The original experience was converted to Vite, React, and TypeScript so the project does not depend on Next.js. The same core features are preserved, with an enhanced Markdown publishing pipeline.
+
+## Features
+
+- Responsive blog and portfolio interface with themes.
+- Static Markdown and MDX articles generated at build time.
+- Likes, signatures, image comparisons, SEO metadata, and sitemap generation.
+- Syntax-highlighted code blocks with copy buttons.
+- Full CommonMark/GFM support: headings, tables, task lists, nested lists, footnotes, alerts, images, links, blockquotes, and more.
+- Mermaid diagrams and KaTeX mathematics.
+- Trusted raw HTML for elements such as `details`, `summary`, `kbd`, `audio`, `video`, and `iframe`.
+
+## Getting started
 
 ```bash
 npm install
@@ -10,56 +22,68 @@ cp .env.example .env
 npm run dev
 ```
 
-## Scripts
+The development server is available at `http://localhost:{port}`.
 
-- `npm run dev` starts the Vite server.
-- `npm run build` generates Markdown/MDX content, the sitemap, and the production build.
-- `npm run preview` previews the build.
-- `npm run typecheck` checks TypeScript.
-- `npm run lint` runs Biome.
+## Writing an article
 
-## Adding a post
-
-Add a `.md` or `.mdx` file to `src/content/blog/` with similar frontmatter:
+Add a `.md` or `.mdx` file to `src/content/blog/`:
 
 ```yaml
 ---
-title: "My new post"
-slug: "my-new-post"
-date: "2026-08-13"
-description: "A short SEO description."
-banner: "https://images.unsplash.com/..."
+title: "My article"
+slug: "my-article"
+date: "2026-08-17"
+description: "A short description used for SEO."
+banner: "/images/article-cover.jpg"
 labels: ["Notes"]
-authors: ["Lluciocc"]
+authors: ["Lluciocc", "Jane Doe"]
 draft: false
 ---
 ```
 
-The file is converted statically during `npm run build`. Posts with `draft: true` are hidden in production. A complete private rendering reference is available in development at `/blog/markdown-showcase`.
+Authors may also define avatars:
 
-### Supported Markdown
-
-- CommonMark and GitHub Flavored Markdown: headings `#` through `######`, emphasis, links, images, blockquotes, nested lists, task lists, tables, autolinks, strikethrough, footnotes, and horizontal rules.
-- Fenced code blocks with Shiki syntax highlighting and a copy button.
-- Mermaid diagrams through a fenced `mermaid` block.
-- KaTeX mathematics with `$...$` inline and `$$...$$` on a separate block.
-- GitHub alerts such as `> [!NOTE]`, `> [!TIP]`, `> [!IMPORTANT]`, `> [!WARNING]`, and `> [!CAUTION]`.
-- Trusted raw HTML, including `details`, `summary`, `kbd`, `mark`, audio, video, and iframes.
-- The `ImageCompare` MDX component remains available in `.mdx` files.
-
-Mermaid is loaded only on pages that contain a diagram. Raw HTML is intended only for repository-owned content; never pass untrusted user input to the content generator.
-
-## Supabase
-
-Likes and signatures use only the public Supabase key in the browser. Configure these variables in `.env`:
-
-```bash
-VITE_SUPABASE_URL=https://...
-VITE_SUPABASE_ANON_KEY=...
+```yaml
+authors:
+  - name: "Lluciocc"
+    logo: "/profile.png"
+  - name: "Jane Doe"
+    logo: "/authors/jane.jpg"
 ```
 
-The `service_role` key must never be added to this project. The `increment_likes` and `decrement_likes` RPC functions, along with the `likes` and `signs` tables, must exist in the Supabase project. Without Supabase configuration, the site remains browsable but dynamic interactions are disabled.
+Articles with `draft: true` are available during development but hidden from production.
+
+### Markdown extensions
+
+Use a fenced `mermaid` block for diagrams:
+
+````markdown
+```mermaid
+flowchart LR
+  A[Write] --> B[Build] --> C[Publish]
+```
+````
+
+Use `$...$` for inline mathematics and `$$...$$` for display mathematics. GitHub alerts such as `> [!NOTE]` and `> [!WARNING]` are also supported. The development-only `/blog/markdown-showcase` article demonstrates the supported syntax.
+
+Raw HTML is intended for repository-owned content only. Do not send untrusted user input through the content generator.
+
+## Environment
+
+Copy `.env.example` to `.env` and configure the following variables when needed:
+
+```bash
+VITE_SITE_URL=
+VITE_SUPABASE_URL=
+VITE_SUPABASE_ANON_KEY=
+```
+
+Supabase powers likes and signatures. The site remains browsable without Supabase configuration, but those dynamic interactions are disabled. Never expose a Supabase `service_role` key in the frontend.
 
 ## Deployment
 
-The `dist/` directory can be deployed to Vercel, Netlify, Cloudflare Pages, or any static host. Configure the SPA fallback so `/blog/my-post` also serves `index.html` after a direct refresh. To change the canonical URL, set `VITE_SITE_URL`; the default is `https://lluciocc.fr`.
+Run `npm run build` and deploy the generated `dist/` directory to any static hosting provider such as Vercel, Netlify, or Cloudflare Pages. Configure the host to serve `index.html` as the SPA fallback for routes such as `/blog/my-article`.
+
+## License
+
+This project is distributed under the [GNU General Public License v3.0](LICENSE).
