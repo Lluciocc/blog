@@ -2,12 +2,13 @@
 title: "Markdown showcase"
 slug: "markdown-showcase"
 date: "2026-08-17"
-description: "A private visual test page covering the complete Markdown rendering pipeline."
+description: "A showcase of the complete Markdown support available on this blog."
 banner: "/profile.png"
 labels: ["Markdown", "Test"]
 authors: ["Lluciocc", "Boro700"]
-draft: true
 ---
+
+This acticle showcases the Markdown features supported by the blog, from basic text formatting to code, diagrams, mathematics, alerts, and native HTML.
 
 # Heading level 1
 

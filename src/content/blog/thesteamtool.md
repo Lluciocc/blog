@@ -6,7 +6,7 @@ description: "A C# tool for legally downloading and managing Steam games without
 banner: "/profile.png"
 labels: ["C#", "Tool"]
 authors: ["Lluciocc"]
-draft: false
+draft: true
 ---
 
 ## Introduction
