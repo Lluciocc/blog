@@ -8,7 +8,7 @@ export const siteConfig = {
   social: {
     github: "https://github.com/lluciocc",
     x: "https://x.com/lluciocc",
-    linkedin: "https://www.linkedin.com/in/lluciocc",
+    linkedin: "https://www.linkedin.com/in/lucas-cialdella",
     email: "mailto:lucas.cialdella57@gmail.com",
   },
 } as const;
