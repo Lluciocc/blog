@@ -3,7 +3,7 @@ title: "Writing My Own printf"
 slug: "writing-my-own-printf"
 date: "2026-11-02"
 description: "How I built a C printf reimplementation, from parsing a format string to handling tricky conversions."
-banner: "/profile.png"
+banner: "https://images.unsplash.com/photo-1719253479758-9ab3a77e3af5?auto=format&fit=crop&w=1600&q=85"
 labels: ["C", "EPITECH", "Programming"]
 authors: ["Lluciocc"]
 draft: false
