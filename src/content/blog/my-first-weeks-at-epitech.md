@@ -3,7 +3,7 @@ title: "My First Weeks at EPITECH"
 slug: "my-first-weeks-at-epitech"
 date: "2026-11-02"
 description: "Starting my first year at EPITECH Nancy and discovering the intensity of the C pool."
-banner: "/profile.png"
+banner: "https://images.unsplash.com/photo-1631624215749-b10b3dd7bca7?auto=format&fit=crop&w=1600&q=85"
 labels: ["EPITECH", "C", "Education"]
 authors: ["Lluciocc"]
 draft: false
